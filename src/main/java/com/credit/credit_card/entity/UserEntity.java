@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "users")   // VERY IMPORTANT
+@Table(name = "users")
 @Data
 public class UserEntity {
 
@@ -13,5 +13,9 @@ public class UserEntity {
     private Long id;
 
     private String name;
+
+    @Column(unique = true)
     private String email;
+
+    private String password;
 }

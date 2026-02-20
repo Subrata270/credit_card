@@ -13,6 +13,7 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     public String register(UserEntity user) {
 
@@ -35,6 +36,6 @@ public class AuthService {
             return "Invalid password!";
         }
 
-        return "Login successful!";
+        return jwtService.generateToken(user.getEmail());
     }
 }
